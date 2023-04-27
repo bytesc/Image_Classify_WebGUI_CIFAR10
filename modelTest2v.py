@@ -15,24 +15,23 @@ def page1():
 
     def show_info():
         pywebio.output.put_markdown("# 基于CIFAR10数据集的图像分类")
+        pywebio.output.put_html("<br>")
         pywebio.output.put_table([
             [pywebio.output.span('数据集', row=1), pywebio.output.span('支持类别', col=2)],
             ['CIFAR10', train_set_classes]
         ])
-        pywebio.output.put_text("contact:21010078@mail.ecust.edu.cn")
+        pywebio.output.put_html("<br>")
 
-    show_net=[pywebio.output.put_text('net'),
+    show_net = [pywebio.output.put_text('net'),
               pywebio.output.put_image(graph_img)]
-    def popup_window():
-        pywebio.output.popup(title='网络结构', content=show_net)
 
+    def popup_window(title, content):
+        pywebio.output.popup(title=title, content=content)
 
     show_info()
-    pywebio.output.put_buttons(['点击查看网络结构'], [lambda: popup_window()])
+    pywebio.output.put_buttons(['查看网络结构'], [lambda: popup_window("网络结构", show_net)])
     # pywebio.output.put_buttons(['点击查看网络结构'], [popup_window])
-    pywebio.output.put_html("</br></br></br>")
     inpic = pywebio.input.file_upload(label="上传图片 please upload a image")
-
 
 
     # img_path = "./pic2/102.png"
@@ -47,8 +46,6 @@ def page1():
     img = torch.reshape(img, (1, 3, 32, 32))
     # print(img.shape)
 
-
-
     model = torch.load("data/myModel_46.pth", map_location=torch.device('cpu'))
     # print(model)
 
@@ -60,22 +57,24 @@ def page1():
     # print(train_set.classes[output.argmax(1).item()])
     # pywebio.output.put_text(train_set.classes[output.argmax(1).item()])
     pywebio.output.popup(title='识别结果',
-                         content=[pywebio.output.put_markdown("人工智障表示，这是：\n # " + train_set_classes[output.argmax(1).item()])])
+                         content=[pywebio.output.put_markdown("分类结果：\n # " + train_set_classes[output.argmax(1).item()])])
 
+    # img = torch.reshape(img, (3, 32, 32))
+    # transform2 = torchvision.transforms.Compose([
+    #     torchvision.transforms.Resize((160, 160)),
+    #     torchvision.transforms.ToPILImage()
+    # ])
+    # img = transform2(img)
+    #
+    # img_bytes = BytesIO()
+    # img.save(img_bytes, format="JPEG")
+    # img = img_bytes.getvalue()
+    # pywebio.output.put_image(img, height="512", width="512")
+    # pywebio.output.put_image(inpic['content'], height="512", width="512")
+    # pywebio.output.put_image(inpic['content'])
 
-    img = torch.reshape(img, (3, 32, 32))
-    transform2 = torchvision.transforms.Compose([
-        torchvision.transforms.Resize((160, 160)),
-        torchvision.transforms.ToPILImage()
-    ])
-    img = transform2(img)
-
-    img_bytes = BytesIO()
-    img.save(img_bytes, format="JPEG")
-    img = img_bytes.getvalue()
-    pywebio.output.put_image(img, height="512", width="512")
-
-    pywebio.output.put_image(inpic['content'], height="512", width="512")
+    show_img = [pywebio.output.put_image(None if not inpic else inpic['content'])]
+    pywebio.output.put_buttons(['查看图片'], [lambda: popup_window("上传的图片", show_img)])
 
 
 if __name__ == "__main__":
