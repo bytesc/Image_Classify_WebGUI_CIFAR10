@@ -57,7 +57,8 @@ def page1():
     # print(train_set.classes[output.argmax(1).item()])
     # pywebio.output.put_text(train_set.classes[output.argmax(1).item()])
     pywebio.output.popup(title='识别结果',
-                         content=[pywebio.output.put_markdown("分类结果：\n # " + train_set_classes[output.argmax(1).item()])])
+                         content=[pywebio.output.put_markdown("分类结果：\n # " + train_set_classes[output.argmax(1).item()]),
+                                  pywebio.output.put_image(None if not inpic else inpic['content'])])
 
     # img = torch.reshape(img, (3, 32, 32))
     # transform2 = torchvision.transforms.Compose([
@@ -72,9 +73,6 @@ def page1():
     # pywebio.output.put_image(img, height="512", width="512")
     # pywebio.output.put_image(inpic['content'], height="512", width="512")
     # pywebio.output.put_image(inpic['content'])
-
-    show_img = [pywebio.output.put_image(None if not inpic else inpic['content'])]
-    pywebio.output.put_buttons(['查看图片'], [lambda: popup_window("上传的图片", show_img)])
 
 
 if __name__ == "__main__":

@@ -1,0 +1,4 @@
+torch==2.0.0
+torchvision==0.15.1
+pywebio==1.7.1
+
