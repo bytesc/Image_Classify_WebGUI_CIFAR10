@@ -32,10 +32,13 @@ def page1():
     pywebio.output.put_buttons(['查看网络结构'], [lambda: popup_window("网络结构", show_net)])
     # pywebio.output.put_buttons(['点击查看网络结构'], [popup_window])
     inpic = pywebio.input.file_upload(label="上传图片 please upload a image")
-
+    pywebio.output.popup("加载中", [
+        pywebio.output.put_loading(),
+    ])
 
     # img_path = "./pic2/102.png"
     img = PIL.Image.open(BytesIO(inpic['content']))
+    # pywebio.output.put_image(inpic['content'])
     img = img.convert("RGB")
     # print(img.size)
     transform01 = torchvision.transforms.Compose([
@@ -73,13 +76,15 @@ def page1():
     # pywebio.output.put_image(img, height="512", width="512")
     # pywebio.output.put_image(inpic['content'], height="512", width="512")
     # pywebio.output.put_image(inpic['content'])
+    del model, inpic, img
 
 
 if __name__ == "__main__":
     # page1()
     pywebio.start_server(
         applications=[page1, ],
-        debug=False,
+        debug=True,
+        cdn=False,
         auto_open_webbrowser=False,
         remote_access=False,
         port=6006
