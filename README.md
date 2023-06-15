@@ -8,7 +8,7 @@
 * 3，使用pywebio作为web可视化框架，无需前端语言，使用纯python编写。轻量化，易复现，易部署
 
 使用的网络结构
-![image](https://github.com/bytesc/Image_Classify_WebGUI_CIFAR10/blob/main/readme_static/readme_img/net.png)
+![image](./readme_static/readme_img/net.png)
 
 ## 效果截图
 ![image](https://github.com/bytesc/Image_Classify_WebGUI_CIFAR10/blob/main/readme_static/readme_img/1.png)
