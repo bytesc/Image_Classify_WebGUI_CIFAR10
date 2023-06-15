@@ -11,9 +11,9 @@
 ![image](./readme_static/readme_img/net.png)
 
 ## 效果截图
-![image](https://github.com/bytesc/Image_Classify_WebGUI_CIFAR10/blob/main/readme_static/readme_img/1.png)
-![image](https://github.com/bytesc/Image_Classify_WebGUI_CIFAR10/blob/main/readme_static/readme_img/2.png)
-![image](https://github.com/bytesc/Image_Classify_WebGUI_CIFAR10/blob/main/readme_static/readme_img/3.png)
+![image](./readme_static/readme_img/1.png)
+![image](./readme_static/readme_img/2.png)
+![image](./readme_static/readme_img/3.png)
 
 ## 如何使用
 python版本3.9
@@ -25,9 +25,9 @@ modelDemo.py是项目入口，运行此文件即可启动服务器
 > python modelDemo.py
 
 复制链接到浏览器打开
-![image](https://github.com/bytesc/Image_Classify_WebGUI_CIFAR10/blob/main/readme_static/readme_img/p1.png) 
+![image](./readme_static/readme_img/p1.png) 
 点击”Demo“即可进入Web界面
-![image](https://github.com/bytesc/Image_Classify_WebGUI_CIFAR10/blob/main/readme_static/readme_img/p2.png)
+![image](./readme_static/readme_img/p2.png)
 
 之后，也可以点击“上传文件”，选择example_img文件夹内图片文件上传测试
 
