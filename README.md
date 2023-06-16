@@ -2,6 +2,8 @@
 
 基于CIFAR10的图像分类：图像分类可视化界面，图像分类前端网页，图像分类Demo展示-Pywebio。AI人工智能图像分类-Pytorch。CIFAR10数据集，小模型。100%纯Python代码，轻量化，易复现 
 
+[个人网站：www.bytesc.club](http://www.bytesc.club) 包含项目在线演示。
+
 ## 项目简介
 * 1, 使用pytorch实现CIFAR10数据集图片的智能分类
 * 2, 使用小模型，轻量化，76%准确率
