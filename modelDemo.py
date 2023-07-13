@@ -23,7 +23,7 @@ def page1():
         pywebio.output.put_html("<br>")
 
     show_net = [pywebio.output.put_text('net'),
-              pywebio.output.put_image(graph_img)]
+                pywebio.output.put_image(graph_img)]
 
     def popup_window(title, content):
         pywebio.output.popup(title=title, content=content)
@@ -31,6 +31,7 @@ def page1():
     show_info()
     pywebio.output.put_buttons(['查看网络结构'], [lambda: popup_window("网络结构", show_net)])
     # pywebio.output.put_buttons(['点击查看网络结构'], [popup_window])
+    pywebio.input.actions("", [{'label': "上传图片", 'value': "", 'color': 'success', }])
     inpic = pywebio.input.file_upload(label="上传图片 please upload a image")
     pywebio.output.popup("加载中", [
         pywebio.output.put_loading(),
@@ -60,8 +61,9 @@ def page1():
     # print(train_set.classes[output.argmax(1).item()])
     # pywebio.output.put_text(train_set.classes[output.argmax(1).item()])
     pywebio.output.popup(title='识别结果',
-                         content=[pywebio.output.put_markdown("分类结果：\n # " + train_set_classes[output.argmax(1).item()]),
-                                  pywebio.output.put_image(None if not inpic else inpic['content'])])
+                         content=[
+                             pywebio.output.put_markdown("分类结果：\n # " + train_set_classes[output.argmax(1).item()]),
+                             pywebio.output.put_image(None if not inpic else inpic['content'])])
 
     # img = torch.reshape(img, (3, 32, 32))
     # transform2 = torchvision.transforms.Compose([
@@ -89,4 +91,3 @@ if __name__ == "__main__":
         remote_access=False,
         port=6006
     )
-
