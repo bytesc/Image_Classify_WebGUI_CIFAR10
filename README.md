@@ -6,6 +6,10 @@
 
 [个人网站：www.bytesc.top](http://www.bytesc.top) 包含项目在线演示。
 
+[个人博客：blog.bytesc.top](http://blog.bytesc.top)
+
+🔔 如有项目相关问题，欢迎在本项目提出`issue`，我一般会在 24 小时内恢复。
+
 ## 项目简介
 * 1, 使用pytorch实现CIFAR10数据集图片的智能分类
 * 2, 使用小模型，轻量化，76%准确率

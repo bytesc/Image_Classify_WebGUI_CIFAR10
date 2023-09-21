@@ -89,5 +89,5 @@ if __name__ == "__main__":
         cdn=False,
         auto_open_webbrowser=False,
         remote_access=False,
-        port=6006
+        port=6007
     )
