@@ -6,8 +6,6 @@
 
 [Personal website: www.bytesc.top](http://www.bytesc.top) includes online project demonstrations.
 
-[Personal blog: blog.bytesc.top](http://blog.bytesc.top) 
-
 🔔 If you have any project-related questions, feel free to raise an `issue` in this project, I will usually reply within 24 hours.
 
 ## Project Introduction
